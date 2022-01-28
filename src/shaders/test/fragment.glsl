@@ -38,7 +38,7 @@ void main()
 
 
   // Pattern 8
-  float strength = mod(vUv.y * 10.0, 1.0);
+  // float strength = mod(vUv.y * 10.0, 1.0);
 
   // // this if statement works, but it is bad for performance
   // if (strength < 0.5) {
@@ -54,7 +54,13 @@ void main()
   // // first arg = the limit
   // // second arg = value
   // // if the value is below the limit, then step will provide 0, if the value is above the limit, then step will provide 1
-  strength = step(0.5, strength);
+  // strength = step(0.5, strength);
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 9
+  float strength = mod(vUv.y * 10.0, 1.0);
+  strength = step(0.8, strength);
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
