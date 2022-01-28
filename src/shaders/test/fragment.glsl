@@ -30,10 +30,31 @@ void main()
 
 
   // Pattern 7
-  // can't use '%' for modulo.
-  // first arg = value going to increment
-  // second arg = the limit -> goes back to 0 once this limit has been reached
+  // // can't use '%' for modulo.
+  // // first arg = value going to increment
+  // // second arg = the limit -> goes back to 0 once this limit has been reached
+  // float strength = mod(vUv.y * 10.0, 1.0);
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 8
   float strength = mod(vUv.y * 10.0, 1.0);
+
+  // // this if statement works, but it is bad for performance
+  // if (strength < 0.5) {
+  //   strength = 0.0;
+  // } else {
+  //   strength = 1.0;
+  // }
+
+  // // ternary also works, but same issue as using an if statement - bad for performance
+  // strength = strength < 0.5 ? 0.0 : 1.0;
+
+  // // step function ->
+  // // first arg = the limit
+  // // second arg = value
+  // // if the value is below the limit, then step will provide 0, if the value is above the limit, then step will provide 1
+  strength = step(0.5, strength);
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
