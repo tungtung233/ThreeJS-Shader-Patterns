@@ -114,9 +114,14 @@ void main()
 
 
   // Pattern 16
-  // '-0.5' makes the UV coords go from -0.5 to 0.5, but the values between -0.5 to 0 won't show up as anything other than black.
-  // So using absolute values, -0.5 becomes 0.5
-  float strength = abs(vUv.x - 0.5);
+  // // '-0.5' makes the UV coords go from -0.5 to 0.5, but the values between -0.5 to 0 won't show up as anything other than black.
+  // // So using absolute values, -0.5 becomes 0.5
+  // float strength = abs(vUv.x - 0.5);
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 17
+  float strength = min(abs(vUv.x - 0.5), abs(vUv.y - 0.5));
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
