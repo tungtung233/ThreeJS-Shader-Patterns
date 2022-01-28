@@ -25,7 +25,15 @@ void main()
 
 
   // Pattern 6
-  float strength = vUv.y * 10.0;
+  // float strength = vUv.y * 10.0;
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 7
+  // can't use '%' for modulo.
+  // first arg = value going to increment
+  // second arg = the limit -> goes back to 0 once this limit has been reached
+  float strength = mod(vUv.y * 10.0, 1.0);
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
