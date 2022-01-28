@@ -20,7 +20,12 @@ void main()
 
 
   // Pattern 5
-  float strength = 1.0 - vUv.y;
+  // float strength = 1.0 - vUv.y;
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 6
+  float strength = vUv.y * 10.0;
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
