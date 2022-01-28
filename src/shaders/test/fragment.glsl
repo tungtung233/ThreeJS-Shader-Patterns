@@ -11,6 +11,11 @@ void main()
 
 
   // Pattern 3
-  gl_FragColor = vec4(vUv.x, vUv.x, vUv.x, 1.0);
+  // gl_FragColor = vec4(vUv.x, vUv.x, vUv.x, 1.0);
+
+
+  // Pattern 4
+  float strength = vUv.y;
+  gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
