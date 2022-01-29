@@ -192,7 +192,19 @@ void main()
   // Pattern 26
   // the further from the bottom left corner, the brighter the strength is
   // length = 0 to 1, and bottom left corner is (0,0)
-  float strength = length(vUv);
+  // float strength = length(vUv);
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 27a
+  // float strength = length(vUv - 0.5);
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 27b
+  // distance returns the distance between two points
+  // by changing the values passed to the vec2, you can change the origin of the black point
+  float strength = distance(vUv, vec2(0.5, 0.1));
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
