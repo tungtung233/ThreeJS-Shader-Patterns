@@ -1,6 +1,6 @@
 varying vec2 vUv;
 
-// Pattern 23
+// Pattern 23 and 24
 float random(vec2 st)
 {
   return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
@@ -165,7 +165,17 @@ void main()
   // Pattern 23
   // there is no native random function in GLSL
   // The trick is to get a value so unpredictable that it looks random
-  float strength = random(vUv);
+  // float strength = random(vUv);
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+  
+  // Pattern 24
+  vec2 gridUv = vec2(
+    floor(vUv.x * 10.0) / 10.0,
+    floor(vUv.y * 10.0) / 10.0
+  );
+
+  float strength = random(gridUv);
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
