@@ -146,7 +146,12 @@ void main()
   // Pattern 21
   // if it was just 'round(vUv.x)', then we'd just have two colors: black and white (anything below 0.5 = black, and anything above = white)
   // first we multiply by 10 -> so we get values from 0 to 10, then floor it to make them whole numbers, then divide by 10 to get valuese between 0 to 1 again
-  float strength = floor(vUv.x * 10.0) / 10.0;
+  // float strength = floor(vUv.x * 10.0) / 10.0;
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 22
+  float strength = (floor(vUv.x * 10.0) / 10.0) * (floor(vUv.y * 10.0) / 10.0);
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
