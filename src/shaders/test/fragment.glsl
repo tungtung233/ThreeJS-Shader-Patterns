@@ -180,12 +180,19 @@ void main()
 
 
   // Pattern 25
-  vec2 gridUv = vec2(
-    floor(vUv.x * 10.0) / 10.0,
-    floor((vUv.y + vUv.x * 0.5) * 10.0) / 10.0
-  );
+  // vec2 gridUv = vec2(
+  //   floor(vUv.x * 10.0) / 10.0,
+  //   floor((vUv.y + vUv.x * 0.5) * 10.0) / 10.0
+  // );
 
-  float strength = random(gridUv);
+  // float strength = random(gridUv);
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 26
+  // the further from the bottom left corner, the brighter the strength is
+  // length = 0 to 1, and bottom left corner is (0,0)
+  float strength = length(vUv);
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
