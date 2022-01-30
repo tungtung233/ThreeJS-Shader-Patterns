@@ -253,21 +253,26 @@ void main()
   // gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 
-  // Pattern 32
-  // We need to the same pattern as Pattern 30, but we need to rotate the vUv coordinates around the center. Doing a rotation is not easy  as a 2D rotation is a mix of cos(...) and sin(...), so we are going to use a function instead
-  // look above that main function to see the rotate function
+  // // Pattern 32
+  // // We need to the same pattern as Pattern 30, but we need to rotate the vUv coordinates around the center. Doing a rotation is not easy  as a 2D rotation is a mix of cos(...) and sin(...), so we are going to use a function instead
+  // // look above that main function to see the rotate function
 
-  // you don't have access to PI in GLSL
-  vec2 rotatedUv = rotate(vUv, PI * 0.25, vec2(0.5));
+  // // you don't have access to PI in GLSL
+  // vec2 rotatedUv = rotate(vUv, PI * 0.25, vec2(0.5));
 
-  vec2 lightUvX = vec2(rotatedUv.x * 0.1 + 0.45, rotatedUv.y * 0.5 + 0.25);
-  float lightX = 0.015 / distance(lightUvX, vec2(0.5));
+  // vec2 lightUvX = vec2(rotatedUv.x * 0.1 + 0.45, rotatedUv.y * 0.5 + 0.25);
+  // float lightX = 0.015 / distance(lightUvX, vec2(0.5));
 
-  vec2 lightUvY = vec2(rotatedUv.y * 0.1 + 0.45, rotatedUv.x * 0.5 + 0.25);
-  float lightY = 0.015 / distance(lightUvY, vec2(0.5));
+  // vec2 lightUvY = vec2(rotatedUv.y * 0.1 + 0.45, rotatedUv.x * 0.5 + 0.25);
+  // float lightY = 0.015 / distance(lightUvY, vec2(0.5));
   
-  float strength = lightX * lightY;
+  // float strength = lightX * lightY;
 
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 33
+  float strength = step(0.25, distance(vUv, vec2(0.5)));
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
