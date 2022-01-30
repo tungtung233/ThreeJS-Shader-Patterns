@@ -292,8 +292,18 @@ void main()
 
 
   // Pattern 37
+  // vec2 wavedUv = vec2(
+  //   vUv.x,
+  //   vUv.y + sin(vUv.x * 30.0) * 0.1
+  // );
+  
+  // float strength = 1.0 - step(0.01, abs(distance(wavedUv, vec2(0.5)) - 0.25));
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 38
   vec2 wavedUv = vec2(
-    vUv.x,
+    vUv.x + sin(vUv.y * 30.0) * 0.1,
     vUv.y + sin(vUv.x * 30.0) * 0.1
   );
   
