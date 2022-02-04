@@ -441,7 +441,11 @@ void main()
 
 
   // Pattern 50 - Colored version
-  float strength =  step(0.9, sin(cnoise(vUv * 10.0) * 20.0));
+  // Sometimes when using mix, the value we provide to it can go above 1.0, causing the output to get extrapolated - meaning it goes beyond the second value.
+  // To limit this value, we can use the clamp function on the strength.
+  // This function will simply set a low and high limit to a value
+  float strength =  clamp(step(0.9, sin(cnoise(vUv * 10.0) * 20.0)), 0.0, 1.0);
+
 
   vec3 blackColor = vec3(0.0);
   vec3 uvColor = vec3(vUv, 1.0);
@@ -452,4 +456,5 @@ void main()
   vec3 mixedColor = mix(blackColor, uvColor, strength);
   gl_FragColor = vec4(mixedColor, 1.0);
 
+  // now you can apply color to all the previous patterns, just remember to only have the mixedColor gl_FragColor uncommented, and apply clamp to strength.
 }
