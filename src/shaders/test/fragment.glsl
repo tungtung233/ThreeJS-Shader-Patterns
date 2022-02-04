@@ -426,7 +426,12 @@ void main()
 
 
   // Pattern 48
-  float strength =  1.0 - abs(cnoise(vUv * 10.0));
+  // float strength =  1.0 - abs(cnoise(vUv * 10.0));
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 49
+  float strength =  sin(cnoise(vUv * 10.0) * 20.0);
   gl_FragColor = vec4(strength, strength, strength, 1.0);
 
 }
