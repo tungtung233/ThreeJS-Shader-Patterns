@@ -436,7 +436,20 @@ void main()
 
 
   // Pattern 50 - Black and white version
+  // float strength =  step(0.9, sin(cnoise(vUv * 10.0) * 20.0));
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+
+  // Pattern 50 - Colored version
   float strength =  step(0.9, sin(cnoise(vUv * 10.0) * 20.0));
-  gl_FragColor = vec4(strength, strength, strength, 1.0);
+
+  vec3 blackColor = vec3(0.0);
+  vec3 uvColor = vec3(vUv, 1.0);
+
+  // if strength = 0, we will get black
+  // if strength = 1, we will get color
+  // if it's between those values, then we'll get a mix
+  vec3 mixedColor = mix(blackColor, uvColor, strength);
+  gl_FragColor = vec4(mixedColor, 1.0);
 
 }
