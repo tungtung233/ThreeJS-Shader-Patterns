@@ -323,7 +323,13 @@ void main()
 
   // Pattern 40
   //atan takes in two values
-  float angle = atan(vUv.x, vUv.y);
+  // float angle = atan(vUv.x, vUv.y);
+  // float strength = angle;
+  // gl_FragColor = vec4(strength, strength, strength, 1.0);
+  
+
+  // Pattern 41
+  float angle = atan(vUv.x - 0.5, vUv.y - 0.5);
   float strength = angle;
   gl_FragColor = vec4(strength, strength, strength, 1.0);
   
