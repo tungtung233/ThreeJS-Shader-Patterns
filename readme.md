@@ -1,4 +1,8 @@
-# Three.js Journey
+# Shader Patterns - Three.js Journey
+This project was completed with the goal of understanding how to make patterns using shaders in ThreeJS.
+
+## Screenshots
+![Pattern 1](https://github.com/tungtung233/ThreeJS-Shader-Patterns/blob/main/docs/pattern-01.png?raw=true)
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
